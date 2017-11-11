@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pong.js - Player vs Bot</title>
+
+	<script type="text/javascript" src="../build/Pong.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+
+	<script type="text/javascript">
+
+		window.onload = function () {
+			var pong = new Pong(document.getElementById('pong'));
+
+			function resize () {
+				var gameHeight = window.innerHeight - 40 + 'px';
+				document.getElementById('pong').style.height = gameHeight;
+
+				pong.resize();
+			}
+
+			resize();
+			window.onresize = resize;
+
+			pong.players.a.addControls({
+				'up': 'up',
+				'down': 'down',
+			});
+
+            pong.players.b.setSpeed(250);
+            
+			pong.on('update', function () {
+				if (pong.players.b.y < pong.balls[0].y) {
+					pong.players.b.move(1);
+				} else if (pong.players.b.y > pong.balls[0].y) {
+					pong.players.b.move(-1);
+				}
+			});
+            
+            pong.setBackgroundImage('assets/1.png');
+            pong.players.a.setColor('#4F8F9A');
+            pong.players.b.setColor('#4F8F9A');
+            pong.setBallColor('#4F8F9A');
+            
+//          Make ball bigger by 20 px each hit
+            
+//            pong.on('hit', function () {
+//				pong.setBallSize(pong.balls[0].size + 20);
+//                pong.players.b.setHeight(pong.players.b.height + 1);
+//                
+//			});
+            
+		};
+    
+	</script>
+</head>
+<body>
+	<div id="pong"></div>
+
+	<div class="panel">
+		Move with [ UP ], [ DOWN ]
+	</div>
+
+</body>
+</html>
