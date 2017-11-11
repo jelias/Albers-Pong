@@ -2990,8 +2990,8 @@ ScoreDisplay.prototype.setTextStyle = function (style) {
 };
 
 ScoreDisplay.prototype.render = function () {
+    
     this.text = new pixi.Text(this.player.score + '', config.TEXT_STYLE);
-
     if (this.player.side === 'left') {
         this.text.anchor.x = 1;
     } else {
@@ -3011,9 +3011,10 @@ ScoreDisplay.prototype.updatePosition = function () {
         this.text.position.x = renderer.width / 2 + config.SCORES_MARGIN.x;
     }
 };
-
+    
 ScoreDisplay.prototype.update = function () {
     this.text.setText(this.player.score + '');
+    
 };
 
 ScoreDisplay.prototype.resize = function () {

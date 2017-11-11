@@ -54,6 +54,7 @@ ScoreDisplay.prototype.update = function () {
     this.text.setText(this.player.score + '');
 };
 
+
 ScoreDisplay.prototype.resize = function () {
     this.updatePosition();
 };
