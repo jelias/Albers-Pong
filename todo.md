@@ -18,5 +18,5 @@
 
 - Fix fuzzy text (google pixi hd or hd javascript text)
 
-- Make paddles and ball bigger
+~~- Make paddles and ball bigger~~
 
