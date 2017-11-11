@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Albers Pong - Jacob Elias</title>
+	<title>Pong.js - Player vs Bot</title>
 
 	<script type="text/javascript" src="../build/Pong.js"></script>
 	<link rel="stylesheet" type="text/css" href="styles.css">
@@ -13,7 +13,7 @@
 
 			function resize () {
 				var gameHeight = window.innerHeight - 40 + 'px';
-//				document.getElementById('pong').style.height = gameHeight;
+				document.getElementById('pong').style.height = gameHeight;
 
 				pong.resize();
 			}
@@ -54,12 +54,11 @@
 	</script>
 </head>
 <body>
-    <div class="frame">
 	<div id="pong"></div>
 
 	<div class="panel">
 		Move with [ UP ] [ DOWN ] | Change colors with [ RIGHT ] [ LEFT ] | Pause with [ P ]
 	</div>
-    </div>
+
 </body>
 </html>
