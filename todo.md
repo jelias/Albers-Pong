@@ -4,9 +4,9 @@
     
 - Add rotating colors on each point (change background image, paddle and ball colors)
     - Look at arrays? Sam's snake game uses this method, i think.
-- Create a winner screen at 10 points?
-    - look at winner screen example, figure out how to get the score and when they equal show screen.
-    - can't figure out how to check the score on each point. look into this.
+    
+~~- Create a winner screen at 5 points? (look at winner screen example, figure out how to get the score and when they equal show screen. can't figure out how to check the score on each point. look into this.)~~
+    - Solution: using the point function, it checks the score of the player who just got a point and runs that against the win screen if else.
     
 - Create changing paddle color gameplay
     - 3 different paddle shades for each color set
