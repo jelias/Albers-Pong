@@ -3011,12 +3011,17 @@ ScoreDisplay.prototype.updatePosition = function () {
         this.text.position.x = renderer.width / 2 + config.SCORES_MARGIN.x;
     }
 };
+//    var jacobPlayerScore;
     
 ScoreDisplay.prototype.update = function () {
     this.text.setText(this.player.score + '');
-    
+//    jacobPlayerScore = this.player.score;
+//    console.log(jacobPlayerScore);
+//    var jacobPlayerScore = livePlayerScore;
 };
 
+
+    
 ScoreDisplay.prototype.resize = function () {
     this.updatePosition();
 };

@@ -5,7 +5,7 @@
 
 	<script type="text/javascript" src="../build/Pong.js"></script>
 	<link rel="stylesheet" type="text/css" href="styles.css">
-
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
 	<script type="text/javascript">
 
 		window.onload = function () {
@@ -24,6 +24,8 @@
 			pong.players.a.addControls({
 				'up': 'up',
 				'down': 'down',
+                'left': 'left',
+                'right': 'right',
 			});
 
             pong.players.b.setSpeed(160);
@@ -50,22 +52,18 @@
 //			});
             
             
-            
-//            let gameScore = ( pong.this.player.score );
-            
-            
+          
             
 //      On point, run function. In this case it was an attempt to check if the score was a certain number, and show win message.
+
+            pong.on('point', function (player) {
+//                console.log (player.score);
+                if (player.score === 5) {
+                var pName = (player === pong.players.a) ? 'A' : 'B';
+                pong.win('Player ' + pName + ' Wins!');
+                } else {}
+            })
             
-        
-//            pong.on('point', function (player) {
-//                console.log (pong.playerScore);
-////                if (pong.playerScore === 2) {
-////                var pName = (player === pong.players.a) ? 'A' : 'B';
-////                pong.win('Player ' + pName + ' Wins!');
-////                } else {}
-//            })
-//            
 		};
         
     
