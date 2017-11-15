@@ -12,12 +12,17 @@
     - 3 different paddle shades for each color set
     - Left and right arrows change color of player a paddle
     - When correct color, power serve the ball back? (think powerup)
+    - When wrong color, paddle shrinks?
     
+- Create a welcome screen/start screen for the game.
+    - look at sam's code
+    - look at how to make start screen for js game 
+
 ~~- Change website title to Albers Pong!~~
 
 ~~- Make favicon for website~~
 
-- Fix fuzzy text (google pixi hd or hd javascript text)
+- (IF YOU RUN OUT OF THINGS TO DO) Fix fuzzy text (google pixi hd or hd javascript text)
 
 ~~- Make paddles and ball bigger~~
 

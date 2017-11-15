@@ -157,6 +157,12 @@ Player.prototype.addPoint = function () {
     this.game.emit('point', this);
 };
 
+
+Player.prototype.addHit = function() {
+    this.emit('hit');
+    this.game.emit('hit', this);
+}
+
 Player.prototype.refresh = function () {
     this.graphics.clear();
     this.render();

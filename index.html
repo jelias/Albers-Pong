@@ -10,6 +10,17 @@
 
 		window.onload = function () {
 			var pong = new Pong(document.getElementById('pong'));
+//            var a = pong.players.a;
+            
+            window.onkeydown = function(e) {
+                var key = e.keyCode ? e.keyCode : e.which;
+                if(key == 37){
+                    pong.players.a.setColor('#FF134D');
+                } else if (key == 39) {
+                    pong.players.a.setColor('#13ffa4');
+                    
+                }
+            }
 
 			function resize () {
 				var gameHeight = window.innerHeight - 40 + 'px';
@@ -27,6 +38,13 @@
                 'left': 'left',
                 'right': 'right',
 			});
+            
+            //pong.players.a.on('37', function() {console.log('test');});
+//                        pong.players.a.on('left', function() {pong.players.a.setColor('#FF134D');});
+
+           
+            
+            //pong.players.a.on('hit', function () //if color == ball color)
 
             pong.players.b.setSpeed(160);
             
@@ -42,6 +60,10 @@
             pong.players.a.setColor('#4F8F9A');
             pong.players.b.setColor('#4F8F9A');
             pong.setBallColor('#4F8F9A');
+            
+             pong.players.a.on('hit', function() {
+                console.log('check color ==');
+            });
             
 //          Make ball bigger by 20 px each hit
             

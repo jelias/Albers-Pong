@@ -2237,6 +2237,7 @@ Ball.prototype.checkPlayerCollision = function (player) {
 
         player.emit('bounce', [ this ]);
         this.game.emit('hit', this);
+        player.emit('hit');
 
         if (player.side === 'left') {
             this.bounce(1, 0);
@@ -2654,6 +2655,11 @@ Player.prototype.addPoint = function () {
     this.game.emit('point', this);
 };
 
+Player.prototype.addHit = function() {
+    this.emit('hit');
+    this.game.emit('hit', this);
+}
+    
 Player.prototype.refresh = function () {
     this.graphics.clear();
     this.render();
