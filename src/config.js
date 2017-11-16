@@ -9,6 +9,7 @@ module.exports = {
 	TEXT_STYLE: {
         font: '60px Helvetica, Arial, sans-serif',
         fill: '#eee',
+        stroke: '#fff',
         align: 'center'
     },
     LINES_COLOR: 0xEEEEEE,

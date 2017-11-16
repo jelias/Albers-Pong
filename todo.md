@@ -2,8 +2,8 @@
 ~~- Set window size on load or set game elements to change based on screen size. Possibly used framed game?~~
     - Solution: Set div frame and use css to set size and centering.
     
-- Add rotating colors on each point (change background image, paddle and ball colors)
-    - Look at arrays? Sam's snake game uses this method, i think.
+~~- Add rotating colors on each point (change background image, paddle and ball colors). Look at arrays? Sam's snake game uses this method, i think. Make old ball go away, why does it stay? Re-render canvas?, change pong code?~~
+    - Solution: Used array to rotate colors on each point. Fixed the game code to clear the old ball before rendering a new one.
     
 ~~- Create a winner screen at 5 points? (look at winner screen example, figure out how to get the score and when they equal show screen. can't figure out how to check the score on each point. look into this.)~~
     - Solution: using the point function, it checks the score of the player who just got a point and runs that against the win screen if else.
@@ -22,7 +22,9 @@
 
 ~~- Make favicon for website~~
 
-- (IF YOU RUN OUT OF THINGS TO DO) Fix fuzzy text (google pixi hd or hd javascript text)
+###### (IF YOU RUN OUT OF THINGS TO DO) 
+- Fix fuzzy text (google pixi hd or hd javascript text)
+- Add stroke to score when background is yellow
 
 ~~- Make paddles and ball bigger~~
 

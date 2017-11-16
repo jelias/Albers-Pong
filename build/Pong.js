@@ -2147,10 +2147,12 @@ Ball.prototype.render = function () {
         this.sprite.position.y = - this.size;
         this.sprite.height = this.size * 2;
     } else {
+        this.graphics.clear();
         this.graphics = new pixi.Graphics();
         this.graphics.beginFill(this.color, 1);
         this.graphics.drawCircle(0, 0, this.size);
         this.graphics.endFill();
+        
     }
 
     this.game.stage.addChild(this.graphics);
@@ -3085,6 +3087,7 @@ module.exports = {
 	TEXT_STYLE: {
         font: '60px Helvetica, Arial, sans-serif',
         fill: '#eee',
+        stroke: '#000000',
         align: 'center'
     },
     LINES_COLOR: 0xEEEEEE,

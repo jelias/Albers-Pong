@@ -6,12 +6,15 @@
 	<script type="text/javascript" src="../build/Pong.js"></script>
 	<link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
+    
 	<script type="text/javascript">
-
 		window.onload = function () {
 			var pong = new Pong(document.getElementById('pong'));
 //            var a = pong.players.a;
             
+            
+//            Change color based on left and right key press
+//            should work with RGB so you can easily add or subtract r g and b to change colors
             window.onkeydown = function(e) {
                 var key = e.keyCode ? e.keyCode : e.which;
                 if(key == 37){
@@ -56,14 +59,11 @@
 				}
 			});
             
-            pong.setBackgroundImage('assets/1.png');
-            pong.players.a.setColor('#4F8F9A');
-            pong.players.b.setColor('#4F8F9A');
-            pong.setBallColor('#4F8F9A');
             
-             pong.players.a.on('hit', function() {
-                console.log('check color ==');
-            });
+//          Run function when left paddle is hit (use to check the color of ball to match color of paddle), use if else command.
+//            pong.players.a.on('hit', function() {
+//                console.log('check color ==');
+//            });
             
 //          Make ball bigger by 20 px each hit
             
@@ -73,14 +73,49 @@
 //                
 //			});
             
+// Color array           
+let colorList = [
+						{bg: "assets/1.png", paddle: "#4F8F9A", ball: "#4F8F9A"},
+						{bg: "assets/2.png", paddle: "#A0D18E", ball: "#A0D18E"},
+						{bg: "assets/3.png", paddle: "#548675", ball: "#548675"},
+						{bg: "assets/4.png", paddle: "#6CB8B8", ball: "#6CB8B8"}
+						//{bg: "assets/#.png", paddle: "#", b.setColor: "#", setBallColor: "#"},
+					];
+	let cIndex = 0;
+	let currColors = colorList[cIndex];
+	
             
-          
+  // Change color on point          
+     pong.on('point', function pickNewColor() {
+		if (cIndex < colorList.length - 1) {
+			cIndex++;
+			currColors = colorList[cIndex];
+		} else {
+			cIndex = 0;
+			currColors = colorList[cIndex];
+		};
+	});    
+    
+    function setColors () {
+				pong.setBackgroundImage(currColors.bg);
+                pong.players.a.setColor(currColors.paddle);
+                pong.players.b.setColor(currColors.paddle);
+                pong.setBallColor(currColors.ball);
+			}
             
-//      On point, run function. In this case it was an attempt to check if the score was a certain number, and show win message.
-
+            setColors();
+            
+    pong.on('point', function() {
+        setColors();
+//        pong.Ball.prototype.render(clear();)
+        
+//        pong.Ball.prototype.render.removeChild(this.graphics);
+//        IKnowParentContainer.removeChild(thisSmallThingy);
+        });
+            
             pong.on('point', function (player) {
-//                console.log (player.score);
-                if (player.score === 5) {
+                //      On point, run function. In this case it checks if the score was a certain number, and shows win message.
+                if (player.score === 10) {
                 var pName = (player === pong.players.a) ? 'A' : 'B';
                 pong.win('Player ' + pName + ' Wins!');
                 } else {}
@@ -99,5 +134,24 @@
 		Move with [ UP ] [ DOWN ] | Change colors with [ RIGHT ] [ LEFT ] | Pause with [ P ]
 	</div>
     </div>
+    <div class="hidden">
+	<script type="text/javascript">
+		<!--//--><![CDATA[//><!--
+			var images = new Array()
+			function preload() {
+				for (i = 0; i < preload.arguments.length; i++) {
+					images[i] = new Image()
+					images[i].src = preload.arguments[i]
+				}
+			}
+			preload(
+				"/assets/1.png",
+				"/assets/2.png",
+				"/assets/3.png",
+                "/assets/4.png"
+			)
+		//--><!]]>
+	</script>
+</div>
 </body>
 </html>
