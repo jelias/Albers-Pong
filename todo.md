@@ -24,7 +24,8 @@
 
 ###### (IF YOU RUN OUT OF THINGS TO DO) 
 - Fix fuzzy text (google pixi hd or hd javascript text)
-- Add stroke to score when background is yellow
+
+- Add stroke to score so it is visible when the background is yellow
 
 ~~- Make paddles and ball bigger~~
 

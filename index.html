@@ -11,19 +11,7 @@
 		window.onload = function () {
 			var pong = new Pong(document.getElementById('pong'));
 //            var a = pong.players.a;
-            
-            
-//            Change color based on left and right key press
-//            should work with RGB so you can easily add or subtract r g and b to change colors
-            window.onkeydown = function(e) {
-                var key = e.keyCode ? e.keyCode : e.which;
-                if(key == 37){
-                    pong.players.a.setColor('#FF134D');
-                } else if (key == 39) {
-                    pong.players.a.setColor('#13ffa4');
-                    
-                }
-            }
+        
 
 			function resize () {
 				var gameHeight = window.innerHeight - 40 + 'px';
@@ -42,6 +30,18 @@
                 'right': 'right',
 			});
             
+
+// Color array           
+            let colorList = [
+						{bg: "assets/1.png", paddle: "#4F8F9A", ball: "#4F8F9A", p1: "#3F767F", p2: "#4F8F9A", p3: "#4A737A"},
+						{bg: "assets/2.png", paddle: "#A0D18E", ball: "#A0D18E", p1: "#84C98B", p2: "#A0D18E", p3: "#7EC78F"},
+						{bg: "assets/3.png", paddle: "#548675", ball: "#548675", p1: "#61937F", p2: "#4C7C6C", p3: "#548675"},
+						{bg: "assets/4.png", paddle: "#6CB8B8", ball: "#6CB8B8", p1: "#6CB8B8", p2: "#5CA4B7", p3: "#4694AF"}
+						//{bg: "assets/#.png", paddle: "#", b.setColor: "#", setBallColor: "#"},
+					];
+            let cIndex = 0;
+            let currColors = colorList[cIndex];
+            
             //pong.players.a.on('37', function() {console.log('test');});
 //                        pong.players.a.on('left', function() {pong.players.a.setColor('#FF134D');});
 
@@ -59,11 +59,55 @@
 				}
 			});
             
+
+//            Change color based on left and right key press
+//            should work with RGB so you can easily add or subtract r g and b to change colors
+            var pNumber = 1;
+            
+            var paddleColor = "p" + pNumber;
+            
+            
+            window.onkeydown = function(e) {
+                var key = e.keyCode ? e.keyCode : e.which;
+                if(key == 37){
+                    
+                    if (pNumber < 3) {
+                        pNumber++;
+//                        console.log(pNumber);
+                    } else {
+                        pNumber = 1;
+//                        console.log(pNumber);
+                    };  
+                    pong.players.a.setColor(currColors["p"+pNumber]);
+                    
+                    
+                } else if (key == 39) {
+//                    pnumber not changing for some reason? on the right track though...
+//                    pNumber = 2;
+                     if (pNumber < 3) {
+                        pNumber++;
+//                        console.log(pNumber);
+                    } else {
+                        pNumber = 1;
+//                        console.log(pNumber);
+                    };  
+                    pong.players.a.setColor(currColors["p"+pNumber]);
+//                    console.log(pNumber);
+                   
+//                    console.log("p"+pNumber);
+                    
+                };
+            };            
+            
             
 //          Run function when left paddle is hit (use to check the color of ball to match color of paddle), use if else command.
 //            pong.players.a.on('hit', function() {
 //                console.log('check color ==');
 //            });
+            
+            
+            
+            
             
 //          Make ball bigger by 20 px each hit
             
@@ -72,17 +116,7 @@
 //                pong.players.b.setHeight(pong.players.b.height + 1);
 //                
 //			});
-            
-// Color array           
-let colorList = [
-						{bg: "assets/1.png", paddle: "#4F8F9A", ball: "#4F8F9A"},
-						{bg: "assets/2.png", paddle: "#A0D18E", ball: "#A0D18E"},
-						{bg: "assets/3.png", paddle: "#548675", ball: "#548675"},
-						{bg: "assets/4.png", paddle: "#6CB8B8", ball: "#6CB8B8"}
-						//{bg: "assets/#.png", paddle: "#", b.setColor: "#", setBallColor: "#"},
-					];
-	let cIndex = 0;
-	let currColors = colorList[cIndex];
+        
 	
             
   // Change color on point          
@@ -98,7 +132,7 @@ let colorList = [
     
     function setColors () {
 				pong.setBackgroundImage(currColors.bg);
-                pong.players.a.setColor(currColors.paddle);
+                pong.players.a.setColor(currColors["p"+pNumber]);
                 pong.players.b.setColor(currColors.paddle);
                 pong.setBallColor(currColors.ball);
 			}
@@ -115,9 +149,10 @@ let colorList = [
             
             pong.on('point', function (player) {
                 //      On point, run function. In this case it checks if the score was a certain number, and shows win message.
-                if (player.score === 10) {
+                if (player.score === 5) {
                 var pName = (player === pong.players.a) ? 'A' : 'B';
                 pong.win('Player ' + pName + ' Wins!');
+                pong.Ball.prototype.render.removeChild(this.graphics);
                 } else {}
             })
             
