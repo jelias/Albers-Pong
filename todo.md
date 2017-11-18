@@ -8,11 +8,9 @@
 ~~- Create a winner screen at 5 points? (look at winner screen example, figure out how to get the score and when they equal show screen. can't figure out how to check the score on each point. look into this.)~~
     - Solution: using the point function, it checks the score of the player who just got a point and runs that against the win screen if else.
     
-- Create changing paddle color gameplay
-    - 3 different paddle shades for each color set
-    - Left and right arrows change color of player a paddle
-    - When correct color, power serve the ball back? (think powerup)
-    - When wrong color, paddle shrinks?
+~~- Create changing paddle color gameplay - 3 different paddle shades for each color set - fix subtle colors so you can tell them apart (make it a little easier) - Left and right arrows change color of player a paddle - When correct color, power serve the ball back? (think powerup) - When wrong color, paddle shrinks? - make sure to reset paddle height (100) on point, also reset ball speed (12)!?~~
+    - Solution: lots of troubleshooting, help from Brian Bartels, and more troubleshooting and documentation.
+        
     
 - Create a welcome screen/start screen for the game.
     - look at sam's code
@@ -21,6 +19,10 @@
 ~~- Change website title to Albers Pong!~~
 
 ~~- Make favicon for website~~
+
+##### Stretch Goals
+- Create squares with p1, p2, p3 colors, add stroke when pNumber = that number?
+- 
 
 ###### (IF YOU RUN OUT OF THINGS TO DO) 
 - Fix fuzzy text (google pixi hd or hd javascript text)

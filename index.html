@@ -31,12 +31,13 @@
 			});
             
 
+            
 // Color array           
             let colorList = [
-						{bg: "assets/1.png", paddle: "#4F8F9A", ball: "#4F8F9A", p1: "#3F767F", p2: "#4F8F9A", p3: "#4A737A"},
-						{bg: "assets/2.png", paddle: "#A0D18E", ball: "#A0D18E", p1: "#84C98B", p2: "#A0D18E", p3: "#7EC78F"},
-						{bg: "assets/3.png", paddle: "#548675", ball: "#548675", p1: "#61937F", p2: "#4C7C6C", p3: "#548675"},
-						{bg: "assets/4.png", paddle: "#6CB8B8", ball: "#6CB8B8", p1: "#6CB8B8", p2: "#5CA4B7", p3: "#4694AF"}
+						{bg: "assets/1.png", paddle: "#4F8F9A", ball: "#4F8F9A", p1: "#3F767F", p2: "#4F8F9A", p3: "#5A8284"},
+						{bg: "assets/2.png", paddle: "#A0D18E", ball: "#A0D18E", p1: "#84C98B", p2: "#A0D18E", p3: "#6DAE7D"},
+						{bg: "assets/3.png", paddle: "#548675", ball: "#548675", p1: "#64947C", p2: "#449973", p3: "#548675"},
+						{bg: "assets/4.png", paddle: "#6CB8B8", ball: "#6CB8B8", p1: "#6CB8B8", p2: "#4D8A9A", p3: "#4694AF"}
 						//{bg: "assets/#.png", paddle: "#", b.setColor: "#", setBallColor: "#"},
 					];
             let cIndex = 0;
@@ -59,7 +60,7 @@
 				}
 			});
             
-
+            
 //            Change color based on left and right key press
 //            should work with RGB so you can easily add or subtract r g and b to change colors
             var pNumber = 1;
@@ -84,11 +85,11 @@
                 } else if (key == 39) {
 //                    pnumber not changing for some reason? on the right track though...
 //                    pNumber = 2;
-                     if (pNumber < 3) {
-                        pNumber++;
+                     if (pNumber > 1) {
+                        pNumber--;
 //                        console.log(pNumber);
                     } else {
-                        pNumber = 1;
+                        pNumber = 3;
 //                        console.log(pNumber);
                     };  
                     pong.players.a.setColor(currColors["p"+pNumber]);
@@ -99,11 +100,31 @@
                 };
             };            
             
+//       Function to slow the ball back down.
+//            
+//            function slowBall () {
+//                pong.setBallSpeed(12);
+//                console.log("stop.");
+//            };
+//            
+
             
 //          Run function when left paddle is hit (use to check the color of ball to match color of paddle), use if else command.
-//            pong.players.a.on('hit', function() {
-//                console.log('check color ==');
-//            });
+            pong.players.a.on('hit', function() {
+                if (currColors["p"+pNumber] === currColors.paddle) {
+                    pong.setBallSpeed(28);
+//                Run with delay to slow ball back down after 1.5 seconds.
+//                    window.setTimeout(slowBall, 1500);
+                    
+                    
+                } else {
+                    let playerHeight = pong.players.a.height;
+                    pong.players.a.setHeight(playerHeight - 25);
+                };
+                
+//                console.log(currColors["p"+pNumber]);
+//                console.log(currColors.paddle);
+            });
             
             
             
@@ -135,23 +156,43 @@
                 pong.players.a.setColor(currColors["p"+pNumber]);
                 pong.players.b.setColor(currColors.paddle);
                 pong.setBallColor(currColors.ball);
-			}
+			};
             
             setColors();
+//          
             
-    pong.on('point', function() {
-        setColors();
-//        pong.Ball.prototype.render(clear();)
-        
-//        pong.Ball.prototype.render.removeChild(this.graphics);
-//        IKnowParentContainer.removeChild(thisSmallThingy);
+            
+//            Set ball speed test?
+//            function randomiseBall () {
+//				pong.setBallSize(Math.random() * 20 + 5);
+//				pong.setBallSpeed(Math.random() * 900 + 200);
+////				pong.setBallColor(randomColor());
+//			}
+//
+//			randomiseBall();
+            
+            
+            pong.on('point', function() {
+                setColors();
+                pong.players.a.setHeight (100);
+                pong.setBallSpeed (12);
+                 if (pNumber < 3) {
+                        pNumber++;
+                    } else {
+                        pNumber = 1;
+                    };  
+
         });
             
             pong.on('point', function (player) {
                 //      On point, run function. In this case it checks if the score was a certain number, and shows win message.
                 if (player.score === 5) {
-                var pName = (player === pong.players.a) ? 'A' : 'B';
-                pong.win('Player ' + pName + ' Wins!');
+                if (player === pong.players.a){
+                pong.win('You Win!');
+                } else {
+                    pong.win('CPU Wins!')
+                }
+                    
                 pong.Ball.prototype.render.removeChild(this.graphics);
                 } else {}
             })
