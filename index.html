@@ -136,7 +136,6 @@
                 } 
                 
                 else if (key == 80) {
-                    
                     if (pausedState == false) {
                         pong.setBackgroundImage(currColors.paused);
                         pausedState = true;
@@ -241,7 +240,7 @@
                 pong.setBallSpeed (12);
                 
                 //      On point, run function. In this case it checks if the score was a certain number, and shows win message.
-                if (player.score === 1) {
+                if (player.score === 5) {
                     winScreen(player);
                     
                     setTimeout(location.reload.bind(location), 5000);
