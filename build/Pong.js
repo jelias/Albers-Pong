@@ -3009,7 +3009,7 @@ ScoreDisplay.prototype.render = function () {
     this.text.position.y = config.SCORES_MARGIN.y;
     this.player.game.stage.addChild(this.text);
 };
-
+    
 ScoreDisplay.prototype.updatePosition = function () {
     var renderer = this.player.game.renderer;
 
@@ -3019,13 +3019,9 @@ ScoreDisplay.prototype.updatePosition = function () {
         this.text.position.x = renderer.width / 2 + config.SCORES_MARGIN.x;
     }
 };
-//    var jacobPlayerScore;
     
 ScoreDisplay.prototype.update = function () {
     this.text.setText(this.player.score + '');
-//    jacobPlayerScore = this.player.score;
-//    console.log(jacobPlayerScore);
-//    var jacobPlayerScore = livePlayerScore;
 };
 
 
@@ -3076,7 +3072,7 @@ StartScreen.prototype.bind = function () {
 module.exports = StartScreen;
 
 },{"./MessageScreen":78,"keycode":28}],84:[function(require,module,exports){
-
+    
 module.exports = {
 	BG_COLOR: 0x222222,
 	BARS_WIDTH: 25,
@@ -3087,7 +3083,8 @@ module.exports = {
 	TEXT_STYLE: {
         font: '60px Helvetica, Arial, sans-serif',
         fill: '#eee',
-        stroke: '#000000',
+        stroke: 'rgba(0, 0, 0, 0.25)',
+        strokeThickness: 5,
         align: 'center'
     },
     LINES_COLOR: 0xEEEEEE,

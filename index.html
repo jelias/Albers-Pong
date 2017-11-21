@@ -2,12 +2,32 @@
 <html>
 <head>
 	<title>Albers Pong - Jacob Elias</title>
-
+<!--    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">-->
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>-->
+    <link rel="stylesheet" type="text/css" href="styles.css">
 	<script type="text/javascript" src="../build/Pong.js"></script>
-	<link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
     
+    
 	<script type="text/javascript">
+//       
+//    // https://github.com/typekit/webfontloader
+//    fontsLoaded = false;
+//    WebFont.load({
+//        google: {
+//            families: ['Press Start 2P']
+//        },
+//        loading: function() { console.log('Font(s) Loading'); },
+//        active: function() { console.log('Font(s) Loaded'); fontsLoaded = true; },
+//        inactive: function() { console.log('Font(s) Failure'); }
+//    });
+//    
+        
+        ////////////////////////
+        
+        
+        
+//        
 		window.onload = function () {
 			var pong = new Pong(document.getElementById('pong'));
 //            var a = pong.players.a;
@@ -22,20 +42,25 @@
 
 			resize();
 			window.onresize = resize;
-
+            
 			pong.players.a.addControls({
 				'up': 'up',
 				'down': 'down',
                 'left': 'left',
                 'right': 'right',
 			});
+//            
+//            pong.setTextStyle({
+//               font: '60px Press Start 2P'
+//                
+//            });
+//            
             
-
             
 // Color array           
             let colorList = [
 						{bg: "assets/1.png", paddle: "#4F8F9A", ball: "#4F8F9A", p1: "#3F767F", p2: "#4F8F9A", p3: "#5A8284"},
-						{bg: "assets/2.png", paddle: "#A0D18E", ball: "#A0D18E", p1: "#84C98B", p2: "#A0D18E", p3: "#6DAE7D"},
+						{bg: "assets/2.png", paddle: "#A0D18E", ball: "#A0D18E", p1: "#A0D18E", p2: "#84C98B", p3: "#6DAE7D"},
 						{bg: "assets/3.png", paddle: "#548675", ball: "#548675", p1: "#64947C", p2: "#449973", p3: "#548675"},
 						{bg: "assets/4.png", paddle: "#6CB8B8", ball: "#6CB8B8", p1: "#6CB8B8", p2: "#4D8A9A", p3: "#4694AF"}
 						//{bg: "assets/#.png", paddle: "#", b.setColor: "#", setBallColor: "#"},
@@ -70,8 +95,6 @@
             
             window.onkeydown = function(e) {
                 var key = e.keyCode ? e.keyCode : e.which;
-                if(key == 37){
-                    
                     if (pNumber < 3) {
                         pNumber++;
 //                        console.log(pNumber);
@@ -82,9 +105,6 @@
                     pong.players.a.setColor(currColors["p"+pNumber]);
                     
                     
-                } else if (key == 39) {
-//                    pnumber not changing for some reason? on the right track though...
-//                    pNumber = 2;
                      if (pNumber > 1) {
                         pNumber--;
 //                        console.log(pNumber);
@@ -176,11 +196,6 @@
                 setColors();
                 pong.players.a.setHeight (100);
                 pong.setBallSpeed (12);
-                 if (pNumber < 3) {
-                        pNumber++;
-                    } else {
-                        pNumber = 1;
-                    };  
 
         });
             
@@ -210,24 +225,5 @@
 		Move with [ UP ] [ DOWN ] | Change colors with [ RIGHT ] [ LEFT ] | Pause with [ P ]
 	</div>
     </div>
-    <div class="hidden">
-	<script type="text/javascript">
-		<!--//--><![CDATA[//><!--
-			var images = new Array()
-			function preload() {
-				for (i = 0; i < preload.arguments.length; i++) {
-					images[i] = new Image()
-					images[i].src = preload.arguments[i]
-				}
-			}
-			preload(
-				"/assets/1.png",
-				"/assets/2.png",
-				"/assets/3.png",
-                "/assets/4.png"
-			)
-		//--><!]]>
-	</script>
-</div>
 </body>
 </html>

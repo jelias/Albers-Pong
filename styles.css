@@ -10,6 +10,15 @@
     font-style: normal;
 
 }
+/*
+
+@font-face {
+    font-family: 'Press Start 2P', cursive;
+}
+*/
+
+
+
 body, html {
 	margin: 0;
 	padding: 0;
