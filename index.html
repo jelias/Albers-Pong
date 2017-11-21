@@ -59,10 +59,14 @@
             
 // Color array           
             let colorList = [
-						{bg: "assets/1.png", paddle: "#4F8F9A", ball: "#4F8F9A", p1: "#3F767F", p2: "#4F8F9A", p3: "#5A8284"},
-						{bg: "assets/2.png", paddle: "#A0D18E", ball: "#A0D18E", p1: "#A0D18E", p2: "#84C98B", p3: "#6DAE7D"},
-						{bg: "assets/3.png", paddle: "#548675", ball: "#548675", p1: "#64947C", p2: "#449973", p3: "#548675"},
-						{bg: "assets/4.png", paddle: "#6CB8B8", ball: "#6CB8B8", p1: "#6CB8B8", p2: "#4D8A9A", p3: "#4694AF"}
+						{bg: "assets/1.png", paddle: "#4F8F9A", ball: "#4F8F9A", p1: "#3F767F", p2: "#4F8F9A", p3: "#5A8284",
+                         winYou: "assets/variations/1you.png", winCpu: "assets/variations/1cpu.png", paused: "assets/variations/1paused.png"},
+						{bg: "assets/2.png", paddle: "#A0D18E", ball: "#A0D18E", p1: "#A0D18E", p2: "#84C98B", p3: "#6DAE7D",
+                         winYou: "assets/variations/2you.png", winCpu: "assets/variations/2cpu.png", paused: "assets/variations/2paused.png"},
+						{bg: "assets/3.png", paddle: "#548675", ball: "#548675", p1: "#64947C", p2: "#449973", p3: "#548675",
+                         winYou: "assets/variations/3you.png", winCpu: "assets/variations/3cpu.png", paused: "assets/variations/3paused.png"},
+						{bg: "assets/4.png", paddle: "#6CB8B8", ball: "#6CB8B8", p1: "#6CB8B8", p2: "#4D8A9A", p3: "#4694AF",
+                         winYou: "assets/variations/4you.png", winCpu: "assets/variations/4cpu.png", paused: "assets/variations/4paused.png"}
 						//{bg: "assets/#.png", paddle: "#", b.setColor: "#", setBallColor: "#"},
 					];
             let cIndex = 0;
@@ -97,35 +101,56 @@
             
             var game = document.getElementById("frame");
             
+            let pausedState = false;
+            
             window.onkeydown = function(e) {
                 var key = e.keyCode ? e.keyCode : e.which;
                 if(key == 13){
                     startScreen.style.display = "none";
                     game.style.zIndex = "1";
-                    } else if(key == 39 || key == 68){
-                    if (pNumber < 3) {
-                        pNumber++;
-//                        console.log(pNumber);
-                    } else {
-                        pNumber = 1;
-//                        console.log(pNumber);
-                    };  
-                    pong.players.a.setColor(currColors["p"+pNumber]);
+                    } 
+                
+                else if(key == 39 || key == 68){
+                        if (pNumber < 3) {
+                            pNumber++;
+    //                        console.log(pNumber);
+                        } else {
+                            pNumber = 1;
+    //                        console.log(pNumber);
+                        };  
+                        pong.players.a.setColor(currColors["p"+pNumber]);
+                } 
+                
+                else if (key == 37 || key == 65) {
+                         if (pNumber > 1) {
+                            pNumber--;
+    //                        console.log(pNumber);
+                        } else {
+                            pNumber = 3;
+    //                        console.log(pNumber);
+                        };  
+                        pong.players.a.setColor(currColors["p"+pNumber]);
+    //                    console.log(pNumber);
+
+    //                    console.log("p"+pNumber); 
+                } 
+                
+                else if (key == 80) {
                     
+                    if (pausedState == false) {
+                        pong.setBackgroundImage(currColors.paused);
+                        pausedState = true;
+                        pong.update();
+//                        console.log(pausedState);
+                        
+                    } else if (pausedState == true){
+                        pong.setBackgroundImage(currColors.bg);
+                        pausedState = false;
+                        pong.refresh();
+                        
+                    };
                     
-                } else if (key == 37 || key == 65) {
-                     if (pNumber > 1) {
-                        pNumber--;
-//                        console.log(pNumber);
-                    } else {
-                        pNumber = 3;
-//                        console.log(pNumber);
-                    };  
-                    pong.players.a.setColor(currColors["p"+pNumber]);
-//                    console.log(pNumber);
-                   
-//                    console.log("p"+pNumber);
-                    
+
                 };
             };            
 
@@ -189,30 +214,35 @@
 //			randomiseBall();
             
             
-            pong.on('point', function() {
+//            pong.on('point', function() {
+//                setColors();
+//                pong.players.a.setHeight (100);
+//                pong.setBallSpeed (12);
+//                
+//
+//        });
+            
+            function winScreen (player) {
+                if (player === pong.players.a){
+                    pong.setBackgroundImage(currColors.winYou);
+                    
+                    pong.win('');
+                } else {
+                    pong.setBackgroundImage(currColors.winCpu);
+                    
+                    pong.win('')
+                }
+            };
+            
+            
+            pong.on('point', function (player) {
                 setColors();
                 pong.players.a.setHeight (100);
                 pong.setBallSpeed (12);
                 
-
-        });
-            
-            pong.on('resume', function () {
-                
-                pong.players.a.setSpeed(300);
-                pong.players.b.setSpeed(160);
-                console.log('speed set');
-                
-            })
-            
-            pong.on('point', function (player) {
                 //      On point, run function. In this case it checks if the score was a certain number, and shows win message.
                 if (player.score === 1) {
-                if (player === pong.players.a){
-                    pong.win('You Win!');
-                } else {
-                    pong.win('CPU Wins!')
-                }
+                    winScreen(player);
                     
                     setTimeout(location.reload.bind(location), 5000);
                     
@@ -257,7 +287,19 @@
                     "/assets/1.png",
                     "/assets/2.png",
                     "/assets/3.png",
-                    "/assets/4.png"
+                    "/assets/4.png",
+                    "assets/variations/1you.png",
+                    "assets/variations/1cpu.png",
+                    "assets/variations/1paused.png",
+                    "assets/variations/2you.png",
+                    "assets/variations/2cpu.png",
+                    "assets/variations/2paused.png",
+                    "assets/variations/3you.png",
+                    "assets/variations/3cpu.png",
+                    "assets/variations/3paused.png",
+                    "assets/variations/4you.png",
+                    "assets/variations/4cpu.png",
+                    "assets/variations/4paused.png"
                 )
             //--><!]]>
         </script>

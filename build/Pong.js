@@ -2471,7 +2471,7 @@ var MessageScreen = require('./MessageScreen'),
     PauseScreen,
 
 PauseScreen = function () {
-    this.message = 'PAUSED';
+    this.message = '';
     MessageScreen.apply(this, arguments);
 };
 
@@ -3039,7 +3039,7 @@ var keycode = require('keycode'),
     StartScreen,
 
 StartScreen = function () {
-    this.message = 'PRESS ENTER';
+    this.message = '';
     MessageScreen.apply(this, arguments);
 };
 
