@@ -10,27 +10,8 @@
     
     
 	<script type="text/javascript">
-//       
-//    // https://github.com/typekit/webfontloader
-//    fontsLoaded = false;
-//    WebFont.load({
-//        google: {
-//            families: ['Press Start 2P']
-//        },
-//        loading: function() { console.log('Font(s) Loading'); },
-//        active: function() { console.log('Font(s) Loaded'); fontsLoaded = true; },
-//        inactive: function() { console.log('Font(s) Failure'); }
-//    });
-//    
-        
-        ////////////////////////
-        
-        
-        
-//        
 		window.onload = function () {
 			var pong = new Pong(document.getElementById('pong'));
-//            var a = pong.players.a;
         
 
 			function resize () {
@@ -49,15 +30,8 @@
                 'left': 'left',
                 'right': 'right',
 			});
-//            
-//            pong.setTextStyle({
-//               font: '60px Press Start 2P'
-//                
-//            });
-//            
-            
-            
-// Color array           
+
+// Color array (everything array, images work too)          
             let colorList = [
 						{bg: "assets/1.png", paddle: "#4F8F9A", ball: "#4F8F9A", p1: "#3F767F", p2: "#4F8F9A", p3: "#5A8284",
                          winYou: "assets/variations/1you.png", winCpu: "assets/variations/1cpu.png", paused: "assets/variations/1paused.png"},
@@ -72,12 +46,6 @@
             let cIndex = 0;
             let currColors = colorList[cIndex];
             
-            //pong.players.a.on('37', function() {console.log('test');});
-//                        pong.players.a.on('left', function() {pong.players.a.setColor('#FF134D');});
-
-           
-            
-            //pong.players.a.on('hit', function () //if color == ball color)
 
             pong.players.b.setSpeed(160);
             
@@ -91,7 +59,7 @@
             
             
 //            Change color based on left and right key press
-//            should work with RGB so you can easily add or subtract r g and b to change colors
+//            All run code on specific button press (enter, pause, etc)
             var pNumber = 1;
             
             var paddleColor = "p" + pNumber;
@@ -113,10 +81,10 @@
                 else if(key == 39 || key == 68){
                         if (pNumber < 3) {
                             pNumber++;
-    //                        console.log(pNumber);
+
                         } else {
                             pNumber = 1;
-    //                        console.log(pNumber);
+
                         };  
                         pong.players.a.setColor(currColors["p"+pNumber]);
                 } 
@@ -124,15 +92,15 @@
                 else if (key == 37 || key == 65) {
                          if (pNumber > 1) {
                             pNumber--;
-    //                        console.log(pNumber);
+
                         } else {
                             pNumber = 3;
-    //                        console.log(pNumber);
+
                         };  
                         pong.players.a.setColor(currColors["p"+pNumber]);
-    //                    console.log(pNumber);
 
-    //                    console.log("p"+pNumber); 
+
+
                 } 
                 
                 else if (key == 80) {
@@ -140,7 +108,7 @@
                         pong.setBackgroundImage(currColors.paused);
                         pausedState = true;
                         pong.update();
-//                        console.log(pausedState);
+
                         
                     } else if (pausedState == true){
                         pong.setBackgroundImage(currColors.bg);
@@ -175,9 +143,6 @@
                     let playerHeight = pong.players.a.height;
                     pong.players.a.setHeight(playerHeight - 25);
                 };
-                
-//                console.log(currColors["p"+pNumber]);
-//                console.log(currColors.paddle);
             });
             
             
@@ -200,26 +165,7 @@
 			};
             
             setColors();
-//          
-            
-            
-//            Set ball speed test?
-//            function randomiseBall () {
-//				pong.setBallSize(Math.random() * 20 + 5);
-//				pong.setBallSpeed(Math.random() * 900 + 200);
-////				pong.setBallColor(randomColor());
-//			}
-//
-//			randomiseBall();
-            
-            
-//            pong.on('point', function() {
-//                setColors();
-//                pong.players.a.setHeight (100);
-//                pong.setBallSpeed (12);
-//                
-//
-//        });
+
             
             function winScreen (player) {
                 if (player === pong.players.a){
@@ -239,7 +185,7 @@
                 pong.players.a.setHeight (100);
                 pong.setBallSpeed (12);
                 
-                //      On point, run function. In this case it checks if the score was a certain number, and shows win message.
+    //      On point, run function. In this case it checks if the score was a certain number, and shows win message.
                 if (player.score === 5) {
                     winScreen(player);
                     
