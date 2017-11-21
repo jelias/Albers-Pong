@@ -5,8 +5,8 @@
 <!--    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">-->
 <!--    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>-->
     <link rel="stylesheet" type="text/css" href="styles.css">
-	<script type="text/javascript" src="../build/Pong.js"></script>
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
+	<script type="text/javascript" src="albers-pong/build/Pong.js"></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="albers-pong/assets/favicon.png">
     
     
 	<script type="text/javascript">
@@ -33,14 +33,14 @@
 
 // Color array (everything array, images work too)          
             let colorList = [
-						{bg: "assets/1.png", paddle: "#4F8F9A", ball: "#4F8F9A", p1: "#3F767F", p2: "#4F8F9A", p3: "#5A8284",
-                         winYou: "assets/variations/1you.png", winCpu: "assets/variations/1cpu.png", paused: "assets/variations/1paused.png"},
-						{bg: "assets/2.png", paddle: "#A0D18E", ball: "#A0D18E", p1: "#A0D18E", p2: "#84C98B", p3: "#6DAE7D",
-                         winYou: "assets/variations/2you.png", winCpu: "assets/variations/2cpu.png", paused: "assets/variations/2paused.png"},
-						{bg: "assets/3.png", paddle: "#548675", ball: "#548675", p1: "#64947C", p2: "#449973", p3: "#548675",
-                         winYou: "assets/variations/3you.png", winCpu: "assets/variations/3cpu.png", paused: "assets/variations/3paused.png"},
-						{bg: "assets/4.png", paddle: "#6CB8B8", ball: "#6CB8B8", p1: "#6CB8B8", p2: "#4D8A9A", p3: "#4694AF",
-                         winYou: "assets/variations/4you.png", winCpu: "assets/variations/4cpu.png", paused: "assets/variations/4paused.png"}
+						{bg: "albers-pong/assets/1.png", paddle: "#4F8F9A", ball: "#4F8F9A", p1: "#3F767F", p2: "#4F8F9A", p3: "#5A8284",
+                         winYou: "albers-pong/assets/variations/1you.png", winCpu: "albers-pong/assets/variations/1cpu.png", paused: "albers-pong/assets/variations/1paused.png"},
+						{bg: "albers-pong/assets/2.png", paddle: "#A0D18E", ball: "#A0D18E", p1: "#A0D18E", p2: "#84C98B", p3: "#6DAE7D",
+                         winYou: "albers-pong/assets/variations/2you.png", winCpu: "albers-pong/assets/variations/2cpu.png", paused: "albers-pong/assets/variations/2paused.png"},
+						{bg: "albers-pong/assets/3.png", paddle: "#548675", ball: "#548675", p1: "#64947C", p2: "#449973", p3: "#548675",
+                         winYou: "albers-pong/assets/variations/3you.png", winCpu: "albers-pong/assets/variations/3cpu.png", paused: "albers-pong/assets/variations/3paused.png"},
+						{bg: "albers-pong/assets/4.png", paddle: "#6CB8B8", ball: "#6CB8B8", p1: "#6CB8B8", p2: "#4D8A9A", p3: "#4694AF",
+                         winYou: "albers-pong/assets/variations/4you.png", winCpu: "albers-pong/assets/variations/4cpu.png", paused: "albers-pong/assets/variations/4paused.png"}
 						//{bg: "assets/#.png", paddle: "#", b.setColor: "#", setBallColor: "#"},
 					];
             let cIndex = 0;
@@ -206,7 +206,7 @@
 <body>
     <div id="startBox" >
         <div id="startScreen">
-            <img src="assets/start.png" id="bg" alt="" oncontextmenu="return false;">
+            <img src="albers-pong/assets/start.png" id="bg" alt="" oncontextmenu="return false;">
         </div>
     </div>
     
@@ -229,22 +229,22 @@
                     }
                 }
                 preload(
-                    "/assets/1.png",
-                    "/assets/2.png",
-                    "/assets/3.png",
-                    "/assets/4.png",
-                    "assets/variations/1you.png",
-                    "assets/variations/1cpu.png",
-                    "assets/variations/1paused.png",
-                    "assets/variations/2you.png",
-                    "assets/variations/2cpu.png",
-                    "assets/variations/2paused.png",
-                    "assets/variations/3you.png",
-                    "assets/variations/3cpu.png",
-                    "assets/variations/3paused.png",
-                    "assets/variations/4you.png",
-                    "assets/variations/4cpu.png",
-                    "assets/variations/4paused.png"
+                    "albers-pong/assets/1.png",
+                    "albers-pong/assets/2.png",
+                    "albers-pong/assets/3.png",
+                    "albers-pong/assets/4.png",
+                    "albers-pong/assets/variations/1you.png",
+                    "albers-pong/assets/variations/1cpu.png",
+                    "albers-pong/assets/variations/1paused.png",
+                    "albers-pong/assets/variations/2you.png",
+                    "albers-pong/assets/variations/2cpu.png",
+                    "albers-pong/assets/variations/2paused.png",
+                    "albers-pong/assets/variations/3you.png",
+                    "albers-pong/assets/variations/3cpu.png",
+                    "albers-pong/assets/variations/3paused.png",
+                    "albers-pong/assets/variations/4you.png",
+                    "albers-pong/assets/variations/4cpu.png",
+                    "albers-pong/assets/variations/4paused.png"
                 )
             //--><!]]>
         </script>
