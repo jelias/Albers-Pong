@@ -92,10 +92,17 @@
             
             var paddleColor = "p" + pNumber;
             
+                        
+            var startScreen = document.getElementById("startScreen");
+            
+            var game = document.getElementById("frame");
             
             window.onkeydown = function(e) {
                 var key = e.keyCode ? e.keyCode : e.which;
-                if(key == 39 || key == 68){
+                if(key == 13){
+                    startScreen.style.display = "none";
+                    game.style.zIndex = "1";
+                    } else if(key == 39 || key == 68){
                     if (pNumber < 3) {
                         pNumber++;
 //                        console.log(pNumber);
@@ -121,18 +128,7 @@
                     
                 };
             };            
-            
-            var startScreen = document.getElementById("startScreen");
-            
-            var game = document.getElementById("frame");
-            
-             window.onkeydown = function(e) {
-                 var key = e.keyCode ? e.keyCode : e.which;
-                 if(key == 13){
-                    startScreen.style.display = "none";
-                    game.style.zIndex = "1";
-                    } else {}
-             }
+
             
 //       Function to slow the ball back down.
 //            

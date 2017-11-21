@@ -16,13 +16,14 @@
 ~~- Make favicon for website~~
 
 ##### Stretch Goals
-- Create a welcome screen/start screen for the game.
-    - on enter make screen disapper and show game
-    - 
+~~- Create a welcome screen/start screen for the game. on enter make screen disapper and show game~~
+    - Solution: Use image overlay for startscreen, change display to none when enter button is pressed.
 ~~- Add "a" and "d" to color changing code? Use if or~~
 ~~- Fix paddle speed after 1 game~~
 ~~- Fix paddle speed after game win screen?~~
 - Change game font to same 8-bit font
+    - Update pause screen to change background image to 'paused' image (use array and set each image.)
+    - Update win screen to set background image based on winner (again use array, boy this is gonna be intricate.)
 
 
 ###### (IF YOU RUN OUT OF THINGS TO DO) 
