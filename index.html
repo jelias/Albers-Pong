@@ -95,6 +95,7 @@
             
             window.onkeydown = function(e) {
                 var key = e.keyCode ? e.keyCode : e.which;
+                if(key == 39 || key == 68){
                     if (pNumber < 3) {
                         pNumber++;
 //                        console.log(pNumber);
@@ -105,6 +106,7 @@
                     pong.players.a.setColor(currColors["p"+pNumber]);
                     
                     
+                } else if (key == 37 || key == 65) {
                      if (pNumber > 1) {
                         pNumber--;
 //                        console.log(pNumber);
@@ -147,19 +149,6 @@
             });
             
             
-            
-            
-            
-//          Make ball bigger by 20 px each hit
-            
-//            pong.on('hit', function () {
-//				pong.setBallSize(pong.balls[0].size + 20);
-//                pong.players.b.setHeight(pong.players.b.height + 1);
-//                
-//			});
-        
-	
-            
   // Change color on point          
      pong.on('point', function pickNewColor() {
 		if (cIndex < colorList.length - 1) {
@@ -196,21 +185,37 @@
                 setColors();
                 pong.players.a.setHeight (100);
                 pong.setBallSpeed (12);
+                
 
         });
+            
+            pong.on('resume', function () {
+                
+                pong.players.a.setSpeed(300);
+                pong.players.b.setSpeed(160);
+                console.log('speed set');
+                
+            })
             
             pong.on('point', function (player) {
                 //      On point, run function. In this case it checks if the score was a certain number, and shows win message.
                 if (player.score === 5) {
                 if (player === pong.players.a){
-                pong.win('You Win!');
+                    pong.win('You Win!');
                 } else {
                     pong.win('CPU Wins!')
                 }
                     
-                pong.Ball.prototype.render.removeChild(this.graphics);
-                } else {}
+                    setTimeout(location.reload.bind(location), 5000);
+                    
+//                    window.location.reload();
+                    
+//                pong.Ball.prototype.render.removeChild(this.graphics);
+                    
+                }
             })
+            
+            
             
 		};
         
@@ -218,6 +223,8 @@
 	</script>
 </head>
 <body>
+        
+    
     <div class="frame">
 	<div id="pong"></div>
 
@@ -225,5 +232,24 @@
 		Move with [ UP ] [ DOWN ] | Change colors with [ RIGHT ] [ LEFT ] | Pause with [ P ]
 	</div>
     </div>
+        <div class="hidden">
+        <script type="text/javascript">
+            <!--//--><![CDATA[//><!--
+                var images = new Array()
+                function preload() {
+                    for (i = 0; i < preload.arguments.length; i++) {
+                        images[i] = new Image()
+                        images[i].src = preload.arguments[i]
+                    }
+                }
+                preload(
+                    "/assets/1.png",
+                    "/assets/2.png",
+                    "/assets/3.png",
+                    "/assets/4.png"
+                )
+            //--><!]]>
+        </script>
+        </div>
 </body>
 </html>
