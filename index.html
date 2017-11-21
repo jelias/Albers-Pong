@@ -122,6 +122,18 @@
                 };
             };            
             
+            var startScreen = document.getElementById("startScreen");
+            
+            var game = document.getElementById("frame");
+            
+             window.onkeydown = function(e) {
+                 var key = e.keyCode ? e.keyCode : e.which;
+                 if(key == 13){
+                    startScreen.style.display = "none";
+                    game.style.zIndex = "1";
+                    } else {}
+             }
+            
 //       Function to slow the ball back down.
 //            
 //            function slowBall () {
@@ -199,7 +211,7 @@
             
             pong.on('point', function (player) {
                 //      On point, run function. In this case it checks if the score was a certain number, and shows win message.
-                if (player.score === 5) {
+                if (player.score === 1) {
                 if (player === pong.players.a){
                     pong.win('You Win!');
                 } else {
@@ -208,9 +220,7 @@
                     
                     setTimeout(location.reload.bind(location), 5000);
                     
-//                    window.location.reload();
-                    
-//                pong.Ball.prototype.render.removeChild(this.graphics);
+                pong.Ball.prototype.render.removeChild(this.graphics);
                     
                 }
             })
@@ -223,13 +233,18 @@
 	</script>
 </head>
 <body>
-        
+    <div id="startBox" >
+        <div id="startScreen">
+            <img src="assets/start.png" id="bg" alt="" oncontextmenu="return false;">
+        </div>
+    </div>
     
-    <div class="frame">
+    
+    <div class="frame" id="frame">
 	<div id="pong"></div>
 
 	<div class="panel">
-		Move with [ UP ] [ DOWN ] | Change colors with [ RIGHT ] [ LEFT ] | Pause with [ P ]
+		Match the Ball and Paddle Colors To Spike or Your Paddle Will Shrink
 	</div>
     </div>
         <div class="hidden">

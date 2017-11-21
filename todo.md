@@ -17,8 +17,8 @@
 
 ##### Stretch Goals
 - Create a welcome screen/start screen for the game.
-    - look at sam's code
-    - look at how to make start screen for js game 
+    - on enter make screen disapper and show game
+    - 
 ~~- Add "a" and "d" to color changing code? Use if or~~
 ~~- Fix paddle speed after 1 game~~
 ~~- Fix paddle speed after game win screen?~~
