@@ -21,9 +21,8 @@
 ~~- Add "a" and "d" to color changing code? Use if or~~
 ~~- Fix paddle speed after 1 game~~
 ~~- Fix paddle speed after game win screen?~~
-- Change game font to same 8-bit font
-    - Update pause screen to change background image to 'paused' image (use array and set each image.)
-    - Update win screen to set background image based on winner (again use array, boy this is gonna be intricate.)
+~~- Change game font to same 8-bit font Update pause screen to change background image to 'paused' image (use array and set each image.) Update win screen to set background image based on winner (again use array, boy this is gonna be intricate.)~~
+    - Solution: Use images that change based on events to show text rather than trying to embed a new font into the javascript.
 
 
 ###### (IF YOU RUN OUT OF THINGS TO DO) 
