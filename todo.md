@@ -23,6 +23,8 @@
 ~~- Fix paddle speed after game win screen?~~
 ~~- Change game font to same 8-bit font Update pause screen to change background image to 'paused' image (use array and set each image.) Update win screen to set background image based on winner (again use array, boy this is gonna be intricate.)~~
     - Solution: Use images that change based on events to show text rather than trying to embed a new font into the javascript.
+    - Only let player change paddle color when the ball is on the oposite side of the screen
+        - Get ball x value, using else if statement that changes the paddle colors include '&&' to add another requirement for the code to run (i.e. "if right button is pressed and ball is on opposite side, change paddle color").
 
 
 ###### (IF YOU RUN OUT OF THINGS TO DO) 
