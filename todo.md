@@ -25,6 +25,7 @@
     - Solution: Use images that change based on events to show text rather than trying to embed a new font into the javascript.
     - Only let player change paddle color when the ball is on the oposite side of the screen
         - Get ball x value, using else if statement that changes the paddle colors include '&&' to add another requirement for the code to run (i.e. "if right button is pressed and ball is on opposite side, change paddle color").
+    - Add sounds on enter press and hit sounds (correct color is a different sound than wrong color), etc.
 
 
 ###### (IF YOU RUN OUT OF THINGS TO DO) 
